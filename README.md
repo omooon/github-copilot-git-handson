@@ -41,6 +41,7 @@
 ## 6. ステップ一覧
 
 ### 6.1 Repository 作成
+GitHub上にプロジェクトを管理するためのリポジトリ（コードや変更履歴を保存する場所）を作成します。
 1. GitHub にログインします。
 2. 右上の「+」ボタンをクリックし、「New repository」を選択します。
 3. リポジトリ名を入力します。
@@ -49,26 +50,28 @@
 6. 作成されたリポジトリの URL をコピーしておきます。
 
 ### 6.2 Remote 設定
+ローカル環境のリポジトリとGitHub上のリポジトリ（リモートリポジトリ）を紐づけます。
 1. VS Codeを起動します。
 2. VS Code上部メニューから  
    **「ターミナル」→「（プロファイルを使用した）新しいターミナルを作成する」**  
    を選択してターミナルを開きます。
 ![VS Codeでターミナルを開く画面](./images/vscode_terminal.png)
 3. ローカルリポジトリとGitHubリポジトリを紐づけます。
-以下のコマンドを実行します。
+    以下のコマンドを実行します。
 ```bash
 git remote add origin <GitHub リポジトリ URL>
 ```
-設定を確認する場合は、以下のコマンドを実行します。
+    設定を確認する場合は、以下のコマンドを実行します。
 ```
 git remote -v
 ```
 
 ### 6.3 Clone
+GitHub上のリポジトリ（リモートリポジトリ）をローカル環境にコピーし、VS Codeで編集できる状態にします。
 1. GitHub のリポジトリページを開きます。
 2. 「Code」ボタンをクリックします。
 3. HTTPS または SSH の URL をコピーします。
-    ![GitHubのCodeボタン](./images/github_code.png)
+![GitHubのCodeボタン](./images/github_code.png)
 4. VS Codeで開いたターミナルに、以下のコマンドを入力します。
 ```bash
 git clone <repository-url>
@@ -76,20 +79,16 @@ cd <repository-name>
 ```
 5. Cloneが完了すると、リポジトリのフォルダーへ移動できます。
 
-### 6.4 README 作成
-1. VS Code で README.md を作成または編集します。
-2. プロジェクト名、概要、使い方を記述します。
-3. 変更内容を保存します。
-4. 状態を確認します。
+### 6.4 Test File 作成
+Gitの操作確認用として、簡単な計算を行うテストファイルを作成します。
+1. VS Codeでリポジトリフォルダーを開きます。
+2. 計算用のファイルを作成します。  
+   左側のエクスプローラーで **「新しいファイル」** を選択し、`calculator.py` と入力してファイルを作成します。
+![VS Codeで新しいファイルを作成する画面](./images/create_file.png)
 
-```bash
-git status
-```
-
-### 6.4 Commit
+### 6.5 Commit
 1. 変更したファイルをステージングエリアに追加します。
 2. コミットメッセージを付けて保存します。
-
 ```bash
 git add README.md
 git commit -m "README を追加"
