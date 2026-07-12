@@ -1,244 +1,182 @@
-# GitHub と GitHub Copilot のハンズオン README
+# GitHub / GitHub Copilot の基本操作ハンズオン
 
 ## 1. 目的
-この README は、GitHub を使った開発フローを学びながら、GitHub Copilot を活用するハンズオン形式のガイドです。
+この README では、Git と GitHub を使ってファイルの変更履歴を管理し、GitHub に反映する基本的な開発フローを学びます。GitHub Copilot を活用しながら、README の作成、コミット、ブランチ、プッシュ、Pull Request、マージまでを体験します。
 
-- Git の基本操作を体験する
-- GitHub のリモート連携を学ぶ
-- ブランチとプルリクエストの流れを理解する
-- GitHub Copilot で作業をサポートする方法を知る
+- Git の基本操作を理解する
+- GitHub への反映手順を覚える
+- ブランチと Pull Request の流れを把握する
+- GitHub Copilot を開発補助に使う方法を知る
 
-## 2. 準備
-### 2.1 必要なもの
+## 2. プロジェクト概要
+このハンズオンは、GitHub での共同開発を始めるための入門教材です。ローカル環境で変更を管理し、GitHub に送信してレビュー・統合する一連の流れを確認します。
+
+## 3. 前提条件
+次のものがあることを前提に進めます。
+
 - Git がインストールされていること
-- GitHub アカウント
-- VS Code（または GitHub Copilot対応のエディタ）
-- GitHub Copilot の利用権限
+- GitHub アカウントを持っていること
+- VS Code などのエディタが使えること
+- インターネット接続ができること
+- GitHub Copilot を利用できること
 
-### 2.2 VS Code の準備
-1. VS Code を開く
-2. `GitHub Copilot` 拡張機能をインストールするGitHubで公開することを前提にREADME.mdを作成してください。
+## 4. 開発環境
+- OS: macOS / Windows / Linux
+- Git: 最新版
+- エディタ: VS Code
+- リモート管理先: GitHub
 
-目的は「GitHub Copilotを活用しながらGit/GitHubによる開発フローを学ぶ」ことです。
+## 5. ハンズオン全体の流れ
+1. GitHub で Repository を作成する
+2. GitHub からローカルに Clone する
+3. README を作成・編集する
+4. 変更を Commit する
+5. ブランチを作成する
+6. 変更を Push する
+7. Pull Request を作成する
+8. Merge する
+9. Conflict を解消する
+10. Release する
 
-含めてほしい内容
-- プロジェクト概要
-- 前提条件
-- 開発環境
-- ハンズオン全体の流れ
-- ステップ一覧
-  - Repository作成
-  - Clone
-  - README作成
-  - Commit
-  - Branch
-  - Push
-  - Pull Request
-  - Merge
-  - Conflict解消
-  - Release
-- 学習後にできるようになること
-- ライセンス
+## 6. ステップ一覧
 
-見やすいMarkdownで作成してください。GitHubで公開することを前提にREADME.mdを作成してください。
+### 6.1 Repository 作成
+1. GitHub にログインします。
+2. 右上の「+」ボタンをクリックし、「New repository」を選択します。
+3. リポジトリ名を入力します。
+4. Public / Private を選択します。
+5. 「Create repository」をクリックします。
+6. 表示される URL をコピーしておきます。
 
-目的は「GitHub Copilotを活用しながらGit/GitHubによる開発フローを学ぶ」ことです。
-
-含めてほしい内容
-- プロジェクト概要
-- 前提条件
-- 開発環境
-- ハンズオン全体の流れ
-- ステップ一覧
-  - Repository作成
-  - Clone
-  - README作成
-  - Commit
-  - Branch
-  - Push
-  - Pull Request
-  - Merge
-  - Conflict解消
-  - Release
-- 学習後にできるようになること
-- ライセンス
-
-見やすいMarkdownで作成してください。GitHubで公開することを前提にREADME.mdを作成してください。
-
-目的は「GitHub Copilotを活用しながらGit/GitHubによる開発フローを学ぶ」ことです。
-
-含めてほしい内容
-- プロジェクト概要
-- 前提条件
-- 開発環境
-- ハンズオン全体の流れ
-- ステップ一覧
-  - Repository作成
-  - Clone
-  - README作成
-  - Commit
-  - Branch
-  - Push
-  - Pull Request
-  - Merge
-  - Conflict解消
-  - Release
-- 学習後にできるようになること
-- ライセンス
-
-見やすいMarkdownで作成してください。GitHubで公開することを前提にREADME.mdを作成してください。
-
-目的は「GitHub Copilotを活用しながらGit/GitHubによる開発フローを学ぶ」ことです。
-
-含めてほしい内容
-- プロジェクト概要
-- 前提条件
-- 開発環境
-- ハンズオン全体の流れ
-- ステップ一覧
-  - Repository作成
-  - Clone
-  - README作成
-  - Commit
-  - Branch
-  - Push
-  - Pull Request
-  - Merge
-  - Conflict解消
-  - Release
-- 学習後にできるようになること
-- ライセンス
-
-見やすいMarkdownで作成してください。
-3. GitHub にサインインし、Copilot を有効にする
-
-## 3. GitHub Copilot を使うハンズオン
-このセクションでは、実際に GitHub Copilot を使いながら GitHub 連携を体験します。
-
-### 3.1 ステップ 1: リポジトリを準備する
-```bash
-git init
-```
-- すでに GitHub で作成したリポジトリがあれば、`git clone <URL>` でも OK
-
-### 3.2 ステップ 2: GitHub Copilot で README を補完する
-1. VS Code で `README.md` を開く
-2. コメントや見出しを入力する
-3. Copilot の提案を確認し、`Tab` で受け入れる
-
-例:
-```markdown
-# プロジェクト名
-
-## 目的
-<!-- Copilot にこのプロジェクトの目的を補完させる -->
-```
-
-### 3.3 ステップ 3: 変更をステージしてコミットする
-```bash
-git status
-git add README.md
-git commit -m "README を作成"
-```
-- Copilot はコミットメッセージの候補を提案できるので、参考にすると早い
-
-### 3.4 ステップ 4: GitHub にプッシュする
 ```bash
 git remote add origin <GitHub リポジトリ URL>
-git push -u origin main
 ```
 
-### 3.5 ステップ 5: ブランチを作成して機能追加する
+### 6.2 Clone
+1. GitHub のリポジトリページを開きます。
+2. 「Code」ボタンをクリックします。
+3. HTTPS または SSH の URL をコピーします。
+4. ターミナルで次のコマンドを実行します。
+
 ```bash
-git switch -c feature/copilot-handson
+git clone <repository-url>
+cd <repository-name>
 ```
 
-1. `main.py` や `README.md` などを編集する
-2. Copilot に「この関数を実装してください」などのコメントを書く
-3. Copilot がコード候補を出したら受け入れる
+### 6.3 README 作成
+1. VS Code で README.md を作成または編集します。
+2. プロジェクト名、概要、使い方を記述します。
+3. 変更内容を保存します。
+4. 状態を確認します。
 
-例:
-```python
-# ユーザー名を表示する関数を実装してください
-```
-
-### 3.6 ステップ 6: 変更をコミットしてプッシュ
-```bash
-git add .
-git commit -m "GitHub Copilot ハンズオン機能を追加"
-git push -u origin feature/copilot-handson
-```
-
-### 3.7 ステップ 7: プルリクエストを作成する
-1. GitHub のリポジトリページを開く
-2. `Compare & pull request` をクリック
-3. タイトルと詳細を書き、PR を作成する
-
-> ここでも Copilot は PR の説明文やレビューコメントを書く際に役立ちます。
-
-### 3.8 ステップ 8: PR をレビューしてマージする
-- 自分でレビューするか、共同開発者にレビューしてもらう
-- 必要に応じて修正を行い、再度コミット・プッシュする
-- 問題なければ `Merge pull request` でマージする
-
-## 4. Git と GitHub の基本操作
-### 4.1 状態確認
 ```bash
 git status
 ```
 
-### 4.2 変更追加
+### 6.4 Commit
+1. 変更したファイルをステージングエリアに追加します。
+2. コミットメッセージを付けて保存します。
+
+```bash
+git add README.md
+git commit -m "README を追加"
+```
+
+### 6.5 Branch
+1. 作業内容ごとにブランチを作成します。
+2. ローカルでも同じブランチを作成します。
+
+```bash
+git switch -c feature/readme-update
+```
+
+### 6.6 Push
+1. 変更内容を GitHub に送信します。
+2. 初回は upstream の設定が必要な場合があります。
+
+```bash
+git push -u origin feature/readme-update
+```
+
+### 6.7 Pull Request
+1. GitHub のリポジトリページで「Compare & pull request」を選択します。
+2. タイトルと説明を入力します。
+3. 「Create pull request」をクリックします。
+
+### 6.8 Merge
+1. Pull Request の内容を確認します。
+2. 問題がなければ「Merge pull request」をクリックします。
+3. ローカルの main も最新状態に更新します。
+
+```bash
+git switch main
+git pull origin main
+```
+
+### 6.9 Conflict 解消
+1. 複数人が同じ箇所を変更した場合、競合が発生します。
+2. エディタで競合箇所を確認し、必要な内容を残します。
+3. 修正後にステージングしてコミットします。
+
+```bash
+git add .
+git commit -m "Conflict を解消"
+```
+
+### 6.10 Release
+1. GitHub のリポジトリで「Releases」を開きます。
+2. 「Draft a new release」をクリックします。
+3. タグ名とリリースノートを入力し、「Publish release」をクリックします。
+
+## 7. Git と GitHub の基本コマンド
+
+### 7.1 状態確認
+```bash
+git status
+```
+
+### 7.2 変更を追加する
 ```bash
 git add <ファイル名>
 # すべて追加する場合
 git add .
 ```
 
-### 4.3 コミット
+### 7.3 コミットする
 ```bash
 git commit -m "メッセージ"
 ```
 
-### 4.4 履歴確認
+### 7.4 履歴を確認する
 ```bash
 git log --oneline --graph --decorate
 ```
 
-## 5. GitHub 連携の基本
-### 5.1 リモート確認
+### 7.5 リモートに送信する
 ```bash
-git remote -v
+git push origin <branch-name>
 ```
 
-### 5.2 プッシュ
+### 7.6 リモートの変更を取り込む
 ```bash
-git push origin <branch>
+git pull origin <branch-name>
 ```
 
-### 5.3 プル
-```bash
-git pull origin <branch>
-```
-
-## 6. ブランチ運用のおすすめ
-- `main` は常に安定を保つ
-- 機能ごとに `feature/` ブランチを作る
-- バグ修正は `fix/` ブランチを使う
-- Copilot 提案はレビュー前に必ず自分で確認する
-
-## 7. GitHub Copilot の使いどころ
+## 8. GitHub Copilot の使いどころ
 - README やドキュメントの文章補完
-- 設定やコードのひな型生成
+- コードや設定ファイルのひな型作成
 - 関数実装の提案
-- コミットメッセージや PR の説明文作成
+- コミットメッセージや Pull Request の説明文作成
 
-## 8. 実践のポイント
-- 小さい単位でこまめにコミットする
-- 変更内容をわかりやすくメッセージにする
-- Copilot の提案は必ず自分の理解で検証する
-- GitHub PR の流れを一度通してみる
+## 9. 学習後にできるようになること
+このハンズオンを終えると、次のことができるようになります。
 
-## 9. 参考リンク
-- https://github.com/features/copilot
-- https://docs.github.com/ja
-- https://git-scm.com/book/ja/v2
+- Git で変更履歴を管理できる
+- ブランチを使って作業を分けられる
+- GitHub に変更を反映できる
+- Pull Request を通じてレビューを受けられる
+- 競合を解消できる
+- リリース管理の基本を理解できる
+
+## 10. ライセンス
+このプロジェクトは MIT License のもとで公開します。
