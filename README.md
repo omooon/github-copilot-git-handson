@@ -46,24 +46,37 @@
 3. リポジトリ名を入力します。
 4. Public / Private を選択します。
 5. 「Create repository」をクリックします。
-6. 表示される URL をコピーしておきます。
+6. 作成されたリポジトリの URL をコピーしておきます。
 
+### 6.2 Remote 設定
+1. VS Codeを起動します。
+2. VS Code上部メニューから  
+   **「ターミナル」→「（プロファイルを使用した）新しいターミナルを作成する」**  
+   を選択してターミナルを開きます。
+![VS Codeでターミナルを開く画面](./images/vscode_terminal.png)
+3. ローカルリポジトリとGitHubリポジトリを紐づけます。
+以下のコマンドを実行します。
 ```bash
 git remote add origin <GitHub リポジトリ URL>
 ```
+設定を確認する場合は、以下のコマンドを実行します。
+```
+git remote -v
+```
 
-### 6.2 Clone
+### 6.3 Clone
 1. GitHub のリポジトリページを開きます。
 2. 「Code」ボタンをクリックします。
 3. HTTPS または SSH の URL をコピーします。
-4. ターミナルで次のコマンドを実行します。
-
+    ![GitHubのCodeボタン](./images/github_code.png)
+4. VS Codeで開いたターミナルに、以下のコマンドを入力します。
 ```bash
 git clone <repository-url>
 cd <repository-name>
 ```
+5. Cloneが完了すると、リポジトリのフォルダーへ移動できます。
 
-### 6.3 README 作成
+### 6.4 README 作成
 1. VS Code で README.md を作成または編集します。
 2. プロジェクト名、概要、使い方を記述します。
 3. 変更内容を保存します。
